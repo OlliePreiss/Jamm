@@ -1,0 +1,22 @@
+.btn-main {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $dark-grey;
+  font-weight: 500;
+}
+
+.btn-main:disabled {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $mid-grey;
+  font-weight: 500;
+}
+
+.btn-discrete {
+  color: $mid-grey;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: white;
+}

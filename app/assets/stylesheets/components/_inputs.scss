@@ -1,0 +1,23 @@
+.input-field {
+  color: $mid-grey;
+  border: 2px solid $black;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  width: 300px;
+}
+
+.select {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: $dark-grey;
+}
+
+.select:active {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: $black;
+}
