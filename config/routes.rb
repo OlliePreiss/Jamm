@@ -7,6 +7,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users
+
+  get "users/:id/onboarding_genre", to: "users#edit", as: :edit_restaurant
+  get "users/:id/onboarding_instrument", to: "users#edit", as: :edit_restaurant
+  get "users/:id/onboarding_ability", to: "users#edit", as: :edit_restaurant
+  get "users/:id/onboarding_commitment", to: "users#edit", as: :edit_restaurant
+  get "users/:id/onboarding_about", to: "users#edit", as: :edit_restaurant
+
+
   resources :genres, only: [:index]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]
