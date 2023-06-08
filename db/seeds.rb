@@ -56,4 +56,14 @@ users.each do |user|
   puts "gave user #{user.id} instrument"
 end
 
+Conversation.create(lastmessage: 'Test')
+
+Match.create(
+  sender: User.first,
+  receiver: User.last,
+  senderstatus: true,
+  receiverstatus: true,
+  conversation: Conversation.first
+)
+
 puts "seed complete"
