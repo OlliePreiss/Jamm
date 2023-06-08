@@ -1,0 +1,25 @@
+
+
+.profile-pic-name{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile>h6 {
+  font-weight: 700;
+  font-size: 32px;
+  text-decoration: underline;
+}
+
+.profile>div{
+  padding: 10px;
+}
+
+.profile{
+  height: 90vh;
+  margin-bottom: 100px;
+}
