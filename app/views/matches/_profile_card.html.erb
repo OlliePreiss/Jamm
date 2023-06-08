@@ -10,6 +10,11 @@
     <p><%= profile.about%></p>
   </div>
 
+  <div class="location">
+    <h6>LOCATION</h6>
+    <p><%= profile.location%></p>
+  </div>
+
   <div class="instruments">
     <h6>WHAT DO I PLAY</h6>
     <% profile.instruments.each do |instrument| %>
@@ -32,11 +37,6 @@
   <div class="ability">
     <h6>HOW SKILLED AM I</h6>
     <%= ability_to_string(profile.ability) %>
-  </div>
-
-   <div class="location">
-    <h6>LOCATION</h6>
-    <p><%= profile.location%></p>
   </div>
 
   <div class="sample">

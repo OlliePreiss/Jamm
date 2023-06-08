@@ -3,10 +3,13 @@
 <%# @profiles.each do |profile| %>
 <%#= render :partial => 'profile_card', locals:{profile: profile }%>
 <%# end%>
-
-<%= render :partial => 'profile_card', locals:{profile: @profiles.first }%>
+  <%= render :partial => 'profile_card', locals:{profile: @profiles.first }%>
 </div>
 
+<div class="connect-next">
+  <button class="connect btn-main">Connect</button>
+  <button class="next btn-main">Next</button>
+</div>
 
 
 <%#  %>
