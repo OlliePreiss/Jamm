@@ -6,14 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <style>
-      
+
     </style>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= render "layouts/nav" %>
+   <% if user_signed_in?  %>
+      <%= render "layouts/nav" %>
+    <% else %>
+      <%= render "layouts/nav-signed-out" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

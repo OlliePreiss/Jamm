@@ -2,16 +2,16 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+// import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+// import HelloController from "./hello_controller"
+// application.register("hello", HelloController)
 
-import MatchesController from "./matches_controller"
-application.register("matches", MatchesController)
+// import MatchesController from "./matches_controller"
+// application.register("matches", MatchesController)
 
-import TinderCarouselController from "./tinder_carousel_controller"
-application.register("tinder-carousel", TinderCarouselController)
+// import TinderCarouselController from "./tinder_carousel_controller"
+// application.register("tinder-carousel", TinderCarouselController)
 
-import TinderController from "./tinder_controller"
-application.register("tinder", TinderController)
+// import TinderController from "./tinder_controller"
+// application.register("tinder", TinderController)

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :instruments, only: [:index]
   resources :user_instruments, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :matches, only: [:index]
-  resources :conversations, only: [:show] do
+  resources :conversations, only: [:index, :show] do
     resources :messages
   end
 end
