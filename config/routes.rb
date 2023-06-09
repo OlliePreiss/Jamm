@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :user_instruments, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :matches, only: [:index]
   resources :conversations, only: [:index, :show] do
-    resources :messages
+    resources :messages, only: [:create]
   end
 end

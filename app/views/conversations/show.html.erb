@@ -1,8 +1,5 @@
 <div class="container chatroom">
-  <h1>Converstation #<%= @conversation.id%></h1>
-  <div class="messages">
-  </div>
-</div>
+  <h1>Room #<%= @conversation.id %></h1>
 
   <div class="messages">
     <% @conversation.messages.each do |message| %>
@@ -15,4 +12,15 @@
       </div>
     <% end %>
   </div>
+
+  <%= simple_form_for [@conversation, @message],
+  html: {class: "d-flex"} do |f|
+%>
+  <%= f.input :message,
+    label: false,
+    placeholder: "Send message",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
 </div>
