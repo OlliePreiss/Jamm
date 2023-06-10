@@ -11,3 +11,29 @@
     <%= yield %>
   </body>
 </html>
+
+
+<%# <div class="container" data-controller="matches">
+  <div class="profile-card" data-matches-target="profile">
+    <%# if @profiles %>
+      <!-- Display profile details -->
+      <%#= render 'profile_card', profile: profile %>
+      <%#= button_to 'Connect',
+                    approve_matches_path(@profile),
+                    method: :post,
+                    remote: true,
+                    class: 'btn-main approve-button',
+                    data: { action: 'click->matches#approve',target: 'matches-connect', profile_id: @profile.id } %>
+
+      <%#= button_to 'Next',
+                    decline_matches_path(@profile),
+                    method: :post,
+                    remote: true,
+                    class: 'btn-main decline-button',
+                    data: { action: 'click->matches#decline', target: 'matches-next', profile_id: @profile.id } %>
+    <%# else %>
+      <%# <p>No more profiles found.</p> %>
+    <%# end %>
+  </div>
+</div> %>
+

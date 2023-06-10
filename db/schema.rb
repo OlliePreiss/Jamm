@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_192319) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_06_10_094917) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,10 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_192319) do
     t.bigint "receiver_id", null: false
     t.boolean "senderstatus"
     t.boolean "receiverstatus"
-    t.bigint "conversation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_matches_on_conversation_id"
     t.index ["receiver_id"], name: "index_matches_on_receiver_id"
     t.index ["sender_id"], name: "index_matches_on_sender_id"
   end
@@ -92,7 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_192319) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "matches", "conversations"
   add_foreign_key "matches", "users", column: "receiver_id"
   add_foreign_key "matches", "users", column: "sender_id"
   add_foreign_key "messages", "conversations"

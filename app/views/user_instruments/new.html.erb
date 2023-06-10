@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div>
+    <h2 class="header"> What instruments do you like? </h2>
+  </div>
+
+  <div>
+    <%= simple_form_for @userinstrument do |f| %>
+      <%= f.association :user %>
+      <%= f.association :instrument, label_method: :instrument, value_method: :id, as: :radio_buttons %>
+      <%= f.button :submit, 'Next', input_html: { class: "btn-main" } %>
+    <% end %>
+  </div>
+
+  <div>
+    <%# update below route to browse matches %>
+    <%= link_to "Skip", root_path, class: "btn-discrete" %>
+  </div>
+</div>
