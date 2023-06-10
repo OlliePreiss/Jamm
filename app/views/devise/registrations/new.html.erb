@@ -9,9 +9,12 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
+        <%= f.input :name,
+                    required: true %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
+                    placeholder: 'joe.bloggs@gmail.com',
                     input_html: { autocomplete: "email" }%>
         <%= f.input :password,
                     required: true,
@@ -20,20 +23,26 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :name,
-                required: true %>
         <%= f.input :location,
-                required: false %>
+                    placeholder: 'e.g London, Dalston',
+                    required: false %>
         <%= f.input :ability,
-                required: false %>
+                    as: :radio_buttons,
+                    collection: [['0', 'Beginner'], ['1', 'Experience'], ['1', 'Pro']], label_method: :second, value_method: :first,
+                    hint: 'We\'ll use to match you with people of similar ability',
+                    required: false %>
         <%= f.input :commitment,
-                required: false %>
+                    as: :radio_buttons,
+                    collection: [['0', 'Once in a while'], ['1', 'A few times a month'], ['1', 'Weekly']], label_method: :second, value_method: :first,
+                    hint: 'We\'ll use this to match you with people of similar commitment',
+                    required: false %>
         <%= f.input :about,
-                required: false %>
+                    hint: 'min: 10 char',
+                    required: false %>
         <%= f.input :sampleurl,
-                required: false %>
+                    required: false %>
         <%= f.input :photourl,
-                required: false %>
+                    required: false %>
       </div>
 
       <div class="form-actions">

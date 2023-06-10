@@ -1,8 +1,8 @@
 import { Application } from "@hotwired/stimulus"
-import Carousel from "stimulus-carousel";
+// import Carousel from "stimulus-carousel";
 
 const application = Application.start()
-application.register("carousel", Carousel)
+// application.register("carousel", Carousel)
 
 // Configure Stimulus development experience
 application.debug = false
@@ -15,4 +15,4 @@ export { application }
 // app/javascript/controllers/index.js
 
 
-application.register("carousel", Carousel)
+// application.register("carousel", Carousel)
