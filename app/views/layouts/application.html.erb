@@ -13,7 +13,11 @@
   </head>
 
   <body>
-    <%= render "layouts/nav" %>
+    <% if user_signed_in?  %>
+      <%= render "layouts/livenav" %>
+    <% else %>
+      <%= render "layouts/nav" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
