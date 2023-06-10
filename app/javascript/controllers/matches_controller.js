@@ -5,6 +5,7 @@ export default class extends Controller {
 
   static targets = [ "connect" , "next", "profile" ]
 
+
   connect() {
     console.log("testing");
     this.profileTargets.forEach(el => {
