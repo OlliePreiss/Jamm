@@ -1,4 +1,9 @@
 class Match < ApplicationRecord
+
+  belongs_to :sender, class_name: "User", foreign_key: 'sender_id'
+  belongs_to :receiver, class_name: "User", foreign_key: 'receiver_id'
+  belongs_to :conversation
+
   validates_uniqueness_of :sender_id, scope: :receiver_id
 
   scope :between, -> (sender_id, receiver_id) do
@@ -30,6 +35,7 @@ class Match < ApplicationRecord
 
     User.where.not(id: ignore_ids)
   end
+
 
 
 end

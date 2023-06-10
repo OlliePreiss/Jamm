@@ -13,6 +13,8 @@ UserInstrument.destroy_all
 Instrument.destroy_all
 Genre.destroy_all
 User.destroy_all
+Conversation.destroy_all
+Match.destroy_all
 
 instrument_seed = ["piano","guitar","flute","drums","piano","bass","clarinet","vocalist","electric guitar"]
 instrument_seed.each do |instrument|
@@ -55,5 +57,17 @@ users.each do |user|
   )
   puts "gave user #{user.id} instrument"
 end
+
+
+Conversation.create(lastmessage: 'Test')
+
+
+Match.create(
+  sender: User.first,
+  receiver: User.last,
+  senderstatus: true,
+  receiverstatus: true,
+  conversation: Conversation.first
+)
 
 puts "seed complete"
