@@ -1,17 +1,5 @@
 
-<%# <div class="container" data-controller="matches">
-    <%# if @profiles %>
-      <%# @profiles.each do |profile| %>
-          <%#= render :partial => 'profile_card', locals:{profile: profile}%>
-      <%# end %>
-      <%# else %>
-      <%# <p>No more profiles to display.</p> %>
-    <%# end %>
-    <div class="connect-next">
-      <button id="connect" class="btn-main" data-matches-target="connect" data-action="matches#approve">Connect</button>
-      <button id="next" class="btn-main" data-matches-target="next" data-action="matches#decline">Next</button>
-    </div>
-</div> %>
+
 
 <div class="container" data-controller="matches">
   <% @profiles.each do |profile| %>
@@ -21,38 +9,14 @@
       <div class="connect-next">
         <%= button_to 'Connect',
                        approve_matches_path(profile_id: profile.id), method: :post, remote: true,
-                       class: 'btn-main approve-button' %>
+                       class: 'btn-main',
+                       id: "connect" %>
         <%= button_to 'Next',
-                     decline_matches_path(profile_id: profile.id), method: :post, remote: true, class: 'btn-main decline-button' %>
+                     decline_matches_path(profile_id: profile.id), method: :post,
+                     remote: true,
+                     class: 'btn-main decline-button',
+                     id: "next" %>
       </div>
     </div>
   <% end %>
 </div>
-
-<%# <div class="container" data-controller="matches">
-  <div class="profile-card" data-matches-target="profile">
-    <%# if @profiles %>
-      <!-- Display profile details -->
-      <%#= render 'profile_card', profile: profile %>
-      <%#= button_to 'Connect',
-                    approve_matches_path(@profile),
-                    method: :post,
-                    remote: true,
-                    class: 'btn-main approve-button',
-                    data: { action: 'click->matches#approve',target: 'matches-connect', profile_id: @profile.id } %>
-
-      <%#= button_to 'Next',
-                    decline_matches_path(@profile),
-                    method: :post,
-                    remote: true,
-                    class: 'btn-main decline-button',
-                    data: { action: 'click->matches#decline', target: 'matches-next', profile_id: @profile.id } %>
-    <%# else %>
-      <p>No more profiles found.</p>
-    <%# end %>
-  </div>
-</div> %>
-
-<% if user_signed_in? %>
-
-<% end %>
