@@ -6,9 +6,9 @@ class UserInstrumentsController < ApplicationController
 
   def create
     @userinstrument = UserInstrument.new(userinstrument_params)
-    # @userinstrument.user_id = current_user
+    @userinstrument.user_id = current_user.id
     if @userinstrument.save!
-      # V2 - redirect to browse matches
+      redirect_to matches_path
     else
       render :new, status: :unprocessable_entity
     end

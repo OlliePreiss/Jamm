@@ -2,8 +2,12 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
+  margin-top: 10px;
   background: $dark-grey;
   font-weight: 500;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
 }
 
 .btn-main:disabled {
@@ -18,5 +22,8 @@
   color: $mid-grey;
   padding: 8px 24px;
   border-radius: 4px;
-  background: white;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
