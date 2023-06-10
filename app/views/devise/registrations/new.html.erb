@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container-box">
 
-  <div>
+  <div class="header-padding">
     <h2 class="header">Sign up</h2>
   </div>
 
-  <div>
+  <div class="form-padding">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
@@ -37,7 +37,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Next", input_html: { class: "btn-main" } %>
+        <%= f.button :submit, "Next", class: "btn-main" %>
       </div>
 
     <% end %>

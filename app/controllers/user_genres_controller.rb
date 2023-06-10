@@ -6,7 +6,7 @@ class UserGenresController < ApplicationController
 
   def create
     @usergenre = UserGenre.new(usergenre_params)
-    # @usergenre.user_id = current_user
+    @usergenre.user_id = current_user.id
     if @usergenre.save!
       redirect_to new_user_instrument_path
     else

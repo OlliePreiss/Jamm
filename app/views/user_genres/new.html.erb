@@ -1,20 +1,19 @@
-<div class="container">
+<div class="container-box">
 
-  <div>
+  <div class="header-padding">
     <h2 class="header"> What genres do you like? </h2>
   </div>
 
-  <div>
+  <div class="form-padding">
     <%= simple_form_for @usergenre do |f| %>
-      <%= f.association :user %>
       <%= f.association :genre, label_method: :genre, value_method: :id, as: :radio_buttons %>
-      <%= f.button :submit, 'Next', input_html: { class: "btn-main" } %>
+      <%= f.button :submit, 'Next', class: "btn-main" %>
     <% end %>
   </div>
 
   <div>
     <%# update below route to browse matches %>
-    <%= link_to "Skip", root_path, class: "btn-discrete" %>
+    <%= link_to "Skip", matches_path, class: "btn-discrete" %>
   </div>
 
 </div>
