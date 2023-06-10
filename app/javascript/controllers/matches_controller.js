@@ -5,8 +5,13 @@ export default class extends Controller {
 
   static targets = [ "connect" , "next", "profile" ]
 
+
   connect() {
-    console.log("testing");
+    console.log("testing alex");
+    // console.log(this.connectTargets)
+    // console.log(this.nextTargets)
+    // console.log(this.connectTargets)
+
     this.profileTargets.forEach(el => {
       el.hidden = true
     });
