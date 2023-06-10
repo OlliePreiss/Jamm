@@ -66,8 +66,7 @@ Match.create(
   sender: User.first,
   receiver: User.last,
   senderstatus: true,
-  receiverstatus: true,
-  conversation: Conversation.first
+  receiverstatus: true
 )
 
 puts "seed complete"
