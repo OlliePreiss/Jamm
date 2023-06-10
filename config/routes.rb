@@ -30,9 +30,8 @@ Rails.application.routes.draw do
     post :approve, on: :collection
     post :decline, on: :collection
   end
-  
-  resources :conversations, only: [:show] do
-    resources :conversations, only: [:index, :show] do
+
+  resources :conversations, only: [:index, :show] do
     resources :messages, only: [:create]
   end
 end

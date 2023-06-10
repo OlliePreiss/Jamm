@@ -67,9 +67,12 @@ class MatchesController < ApplicationController
         match.receiverstatus = false
       end
     else
+
       match = Match.new(sender_id: current_user.id, receiver_id: profile_id, senderstatus: false)
+
     end
 
+    Conversation.create(lastmessage: 'Test')
     if match.save!
       redirect_to matches_path
     end
