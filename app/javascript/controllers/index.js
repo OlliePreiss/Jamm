@@ -6,3 +6,12 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MatchesController from "./matches_controller"
+application.register("matches", MatchesController)
+
+import TinderCarouselController from "./tinder_carousel_controller"
+application.register("tinder-carousel", TinderCarouselController)
+
+import TinderController from "./tinder_controller"
+application.register("tinder", TinderController)
