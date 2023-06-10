@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]
   resources :user_instruments, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :matches, only: [:index]
+  resources :matches, only: [:index] do
+    post :approve, on: :collection
+    post :decline, on: :collection
+  end
   resources :conversations, only: [:show] do
     resources :messages
   end
