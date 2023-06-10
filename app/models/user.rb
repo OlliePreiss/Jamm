@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :instruments, through: :user_instruments
   has_many :matches
   has_many :messages
-  # validates :about, length: { minimum: 10, maximum: 100 }
+  validates :about, length: { minimum: 10, maximum: 100 }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

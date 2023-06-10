@@ -13,10 +13,17 @@
   </head>
 
   <body>
+    
+   <% if user_signed_in?  %>
+      <%= render "layouts/nav" %>
+    <% else %>
+      <%= render "layouts/nav-signed-out" %>
+
     <% if user_signed_in?  %>
       <%= render "layouts/livenav" %>
     <% else %>
       <%= render "layouts/nav" %>
+
     <% end %>
     <%= yield %>
   </body>
