@@ -25,12 +25,13 @@ Rails.application.routes.draw do
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]
   resources :user_instruments, only: [:index, :new, :create, :edit, :update, :destroy]
-
-  resources :matches, only: [:index, :confirmed] do
+  resources :matches, only: [:index] do
     post :approve, on: :collection
     post :decline, on: :collection
+    collection do
+      get :confirmed
+    end
   end
-
   resources :conversations, only: [:index, :show] do
     resources :messages, only: [:create]
   end

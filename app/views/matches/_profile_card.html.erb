@@ -7,38 +7,38 @@
   </div>
 
   <div class="about-me">
-    <h6>ABOUT ME</h6>
+    <h6 class="label">ABOUT ME</h6>
     <p><%= profile.about%></p>
   </div>
 
   <div class="instruments">
-    <h6>WHAT DO I PLAY</h6>
+    <h6 class="label">WHAT DO I PLAY</h6>
     <% profile.instruments.each do |instrument| %>
     <p><%= instrument.instrument %></p>
     <% end %>
   </div>
 
   <div class="genres">
-    <h6>WHAT TYPE OF MUSIC DO I PLAY/LIKE</h6>
+    <h6 class="label">WHAT TYPE OF MUSIC DO I PLAY/LIKE</h6>
     <% profile.genres.each do |genre| %>
     <p><%= genre.genre %></p>
     <% end %>
   </div>
 
   <div class="commitment">
-    <h6>WHAT AM I LOOKING FOR</h6>
+    <h6 class="label">WHAT AM I LOOKING FOR</h6>
     <%= commitment_to_string(profile.commitment) %>
   </div>
 
   <div class="ability">
-    <h6>HOW SKILLED AM I</h6>
+    <h6 class="label">HOW SKILLED AM I</h6>
     <%= ability_to_string(profile.ability) %>
   </div>
 
 
 
   <div class="sample">
-    <h6>MY WORK</h6>
+    <h6 class="label">MY WORK</h6>
     <audio src="//samplelib.com/lib/preview/mp3/sample-12s.mp3" controls controlslist="nodownload"></audio>
   </div>
 
