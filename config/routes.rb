@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   # patch "users/:id", to: "onboardings#commitmentupdate", as: :onboarding_commitment_update
   # patch "users/:id", to: "onboardings#aboutupdate", as: :onboarding_about_update
 
-
+  resources :users, only: [:edit, :update]
+  get "users/:id", to: "users#show", as: :show_user
+  get "users/me/:id",to: "users#me", as: :my_profile
   resources :genres, only: [:index]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]

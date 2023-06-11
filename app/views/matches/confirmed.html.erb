@@ -18,7 +18,7 @@
           </div>
           <div>
             <%# # should this be matches or users show path? %>
-            <%= link_to "View profile", matches_path(user.id), class: "btn btn-secondary" %>
+            <%= link_to "View profile", show_user_path(user.id), class: "btn btn-secondary" %>
           </div>
         </div>
       <% end %>
