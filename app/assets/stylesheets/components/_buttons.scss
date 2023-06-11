@@ -10,6 +10,18 @@
   text-decoration: none;
 }
 
+.btn-banner {
+  color: $dark-grey;
+  padding: 8px 24px;
+  border-radius: 4px;
+  margin-top: 10px;
+  background: white;
+  font-weight: 500;
+  width: 80%;
+  margin: 5% 10%;
+  text-decoration: none;
+}
+
 .btn-main:disabled {
   color: white;
   padding: 8px 24px;
