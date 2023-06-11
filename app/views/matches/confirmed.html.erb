@@ -1,0 +1,27 @@
+<div>
+  <% if @users.empty? %>
+    <div class="notice-padding">
+      <h3 class="body"> You haven't got any matches yet </h3>
+      <%= link_to "Find your first match now", matches_path, class: "btn btn-main" %>
+    </div>
+  <% else %>
+    <div>
+      <% @users.each do |user| %>
+        <div class="card-product d-flex justify-content-between">
+          <div class="d-flex">
+            <div>
+              <%# <%=  cl_image_tag user.#access other users photo, height: 300, width: 400, crop: :fill, class: "image" %> %>
+            </div>
+            <div class="card-product-infos d-flex flex-column justify-content-center">
+              <h2> <%= user.name %></h2>
+            </div>
+          </div>
+          <div>
+            <%# # should this be matches or users show path? %>
+            <%= link_to "View profile", show_user_path(user.id), class: "btn btn-secondary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

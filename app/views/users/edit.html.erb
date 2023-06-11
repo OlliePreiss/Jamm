@@ -1,0 +1,11 @@
+<div class="container-box">
+  <%= simple_form_for [@user] do |f| %>
+    <%= f.input :name %>
+    <%= f.error :location %>
+    <%= f.input :ability %>
+    <%= f.input :commitment %>
+    <%= f.input :about %>
+    <%= f.input :sampleurl %>
+    <%= f.input :photourl %>
+    <%= f.submit "Update", class: "btn btn-main" %>
+  <% end %>

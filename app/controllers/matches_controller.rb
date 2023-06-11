@@ -67,15 +67,46 @@ class MatchesController < ApplicationController
         match.receiverstatus = false
       end
     else
-
       match = Match.new(sender_id: current_user.id, receiver_id: profile_id, senderstatus: false)
-
     end
 
     Conversation.create(lastmessage: 'Test')
     if match.save!
       redirect_to matches_path
     end
-
   end
+
+  def confirmed
+    # Select all matches involving the current user where both users want to connect ("confirmed matches")
+    matches = Match.where(sender_id: current_user.id)#.or(Match.where(receiver_id: current_user.id)).where(senderstatus: true, receiverstatus: true)
+
+    # Identify the ID of the other user, who may be either the sender or receiver
+    matchid = find_match_ids(matches)
+
+    # Find all user objects who's IDs we have just found
+    @users = find_users(matchid)
+  end
+
+  private
+
+  def find_users(user_ids)
+    users = []
+    user_ids.each do |user_id|
+      users.append(User.find(user_id))
+    end
+    return users
+  end
+
+  def find_match_ids(matches)
+    matchid = []
+    matches.each do |match|
+      if match.sender_id == current_user.id
+        matchid.append(match.receiver_id)
+      else
+        matchid.append(match.sender_id)
+      end
+    end
+    return matchid
+  end
+
 end
