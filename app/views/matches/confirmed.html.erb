@@ -1,0 +1,26 @@
+<div class="container-box">
+  <% if @confirmedmatches.empty? %>
+    <div class="body-container">
+      <h3> You haven't got any matches yet </h3>
+      <%= link_to "Find your first match now", matches_path, class: "btn btn-main" %>
+    </div>
+  <% else %>
+    <div class="container-box">
+      <% @confirmedmatches.each do |match| %>
+        <div class="card-product d-flex justify-content-between">
+          <div class="d-flex">
+            <div>
+              <%=  cl_image_tag match.#access other users photo, height: 300, width: 400, crop: :fill, class: "image" %>
+            </div>
+            <div class="card-product-infos d-flex flex-column justify-content-center">
+              <h2> <%= match.#access other users name %></h2>
+            </div>
+          </div>
+          <div>
+            <%= link_to "View profile", matches_show_path(match.#access other user's ID), class: "btn btn-main" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

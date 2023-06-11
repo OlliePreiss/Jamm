@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :instruments, only: [:index]
   resources :user_instruments, only: [:index, :new, :create, :edit, :update, :destroy]
 
-  resources :matches, only: [:index] do
+  resources :matches, only: [:index, :confirmed] do
     post :approve, on: :collection
     post :decline, on: :collection
   end
