@@ -1,9 +1,15 @@
 <div class="container profile" >
 
   <div class="profile-pic-name">
+    <% if @user.photourl.key %>
+      <%=  cl_image_tag @user.photourl.key crop: :fill, class: "avatar-profile" %>
+    <% else  %>
     <img class="avatar-profile" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+    <% end %>
     <h1 class="name"><%= @user.name %></h1>
   </div>
+
+
 
   <div class="about-me">
     <h6 class="label">ABOUT ME</h6>
@@ -38,7 +44,12 @@
 
   <div class="sample">
     <h6 class="label">MY WORK</h6>
+    <% if @user.sampleurl.key %>
+   <%=   cloudinary_url(@user.sampleurl.key, :resource_type=>"video", :transformation=>[
+    {:duration=>"10.0"}]) %>
+  <% else %>
     <audio src="//samplelib.com/lib/preview/mp3/sample-12s.mp3" controls controlslist="nodownload"></audio>
+  <% end %>
   </div>
 
 </div>

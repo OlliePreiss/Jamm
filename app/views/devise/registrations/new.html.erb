@@ -39,9 +39,9 @@
         <%= f.input :about,
                     hint: 'min: 10 char',
                     required: false %>
-        <%= f.input :sampleurl,
+        <%= f.input :sampleurl, as: :file,
                     required: false %>
-        <%= f.input :photourl,
+        <%= f.input :photourl, as: :file,
                     required: false %>
       </div>
 
