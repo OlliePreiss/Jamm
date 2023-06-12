@@ -20,22 +20,30 @@ class Match < ApplicationRecord
       profile_ids << new_id
     end
 
-    User.where(id: profile_ids )
+    User.where(id: profile_ids)
   end
 
-  scope :reccomend_matches_for, -> id do
-    # get account ids to ignore
-    matches = where("(sender_id = ? AND senderstatus IS NOT NULL) OR (receiver_id = ? AND receiverstatus IS NOT NULL )", id, id)
+    scope :reccomend_matches_for, ->(id) do
+      user = User.find(id)
+      ability_score = user.ability
+      commitment_score = user.commitment
 
-    ignore_ids = [id]
-    matches.each do |match|
-      new_id = match.sender_id == id ? match.receiver_id : match.sender_id
-      ignore_ids << new_id
+      # Get account IDs to ignore
+      matches = where("(sender_id = ? AND senderstatus IS NOT NULL) OR (receiver_id = ? AND receiverstatus IS NOT NULL)", id, id)
+      ignore_ids = [id]
+
+      matches.each do |match|
+        new_id = match.sender_id == id ? match.receiver_id : match.sender_id
+        ignore_ids << new_id
+      end
+
+      # Filter users based on ability and commitment scores
+      filtered_users = User.where.not(id: ignore_ids)
+      if ability_score && commitment_score
+        filtered_users = filtered_users.where("(ability BETWEEN ? AND ?) AND (commitment BETWEEN ? AND ?)",
+                                              ability_score - 1, ability_score + 1, commitment_score - 1, commitment_score + 1)
+      end
+
+      filtered_users
     end
-
-    User.where.not(id: ignore_ids)
-  end
-
-
-
 end
