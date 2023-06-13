@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   def index
+    @conversations = Conversation.where?
   end
 
   def show

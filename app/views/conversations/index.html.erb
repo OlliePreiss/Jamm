@@ -1,3 +1,9 @@
-<p>test</p>
-<div class="btn btn-primary">hi</div>
+<h1>Chats</h1>
 
+<div class="container" >
+  <% @conversations.each do |conversation| %>
+    <div class="conversation-container">
+      <%= conversation.id %>
+    </div>
+  <% end %>
+</div>
