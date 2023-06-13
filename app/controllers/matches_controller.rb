@@ -50,7 +50,11 @@ class MatchesController < ApplicationController
       match = Match.new(sender_id: current_user.id, receiver_id: profile_id, senderstatus: true)
     end
     if match.save!
-      redirect_to matches_path
+      if Match.matches_for(current_user.id).include?(profile_id)
+        redirect_to new_user_match_path(profile_id)
+      else
+        redirect_to matches_path
+      end
     end
   end
 
@@ -74,6 +78,10 @@ class MatchesController < ApplicationController
     if match.save!
       redirect_to matches_path
     end
+  end
+
+  def new
+
   end
 
   def confirmed

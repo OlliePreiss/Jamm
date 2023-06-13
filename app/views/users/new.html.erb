@@ -1,0 +1,21 @@
+<div class="container-box">
+  <div class="notice-padding">
+    <h3 class="match-body"> Congratulations </h3>
+    <h3 class="match-header form-inner-padding"> It's a match! </h3>
+    <% if @user.photourl.key %>
+      <div class="form-padding">
+        <%=  cl_image_tag @user.photourl.key, crop: :fill, class: "avatar-profile" %>
+      </div>
+    <% else  %>
+      <div class="form-padding">
+        <img class="avatar-profile" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+      </div>
+    <% end %>
+  </div>
+  <div class="form-padding">
+    <%= link_to "Send a message", show_user_path, class: "btn btn-main" %>
+  </div>
+  <div class="form-inner-padding">
+    <%= link_to "Keep browsing", matches_path, class: "btn btn-main" %>
+  </div>
+</div>
