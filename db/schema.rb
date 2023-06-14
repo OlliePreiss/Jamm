@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_11_205206) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_194438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_205206) do
     t.string "lastmessage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "match_id"
+    t.index ["match_id"], name: "index_conversations_on_match_id"
   end
 
   create_table "genres", force: :cascade do |t|

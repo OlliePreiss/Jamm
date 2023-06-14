@@ -47,8 +47,7 @@ class MatchesController < ApplicationController
         match.receiverstatus = true
       end
     else
-      match = Match.new(sender_id: current_user.id, receiver_id: profile_id, senderstatus: true)
-    end
+      match = Match.new(sender_id: current_user.id, receiver_id: profile_id, senderstatus: true)    end
     if match.save!
       redirect_to matches_path
     end

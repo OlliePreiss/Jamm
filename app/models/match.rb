@@ -2,9 +2,11 @@ class Match < ApplicationRecord
 
   belongs_to :sender, class_name: "User", foreign_key: 'sender_id'
   belongs_to :receiver, class_name: "User", foreign_key: 'receiver_id'
+  has_one :conversation
   # belongs_to :conversation
 
   validates_uniqueness_of :sender_id, scope: :receiver_id
+  after_save :create_conversation
 
   scope :between, -> (sender_id, receiver_id) do
     where("(sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)", sender_id, receiver_id, receiver_id, sender_id)
@@ -34,6 +36,10 @@ class Match < ApplicationRecord
     end
 
     User.where.not(id: ignore_ids)
+  end
+
+  def create_conversation
+    Conversation.create!(match: self)
   end
 
 
