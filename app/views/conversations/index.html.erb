@@ -1,9 +1,29 @@
 <h1>Chats</h1>
+<div>
+  <% if @conversations.empty? %>
+    <div class="notice-padding">
+      <h3 class="body"> Get a match to start a conversation </h3>
+      <%= link_to "Find your first match now", matches_path, class: "btn btn-main" %>
+    </div>
+  <% else %>
+    <div>
+      <% @conversations.each do |conversation| %>
+        <div class="card-product d-flex justify-content-between mb-1">
+          <div class="d-flex">
+            <div>
+            </div>
+            <div class="card-product-infos d-flex flex-column justify-content-center">
+              <%# # will the receiver always be the correct name to display? %>
+              <h2> <%= conversation.match.receiver.name%></h2>
+              <h2> <%= conversation.id%></h2>
 
-<div class="container" >
-  <% @conversations.each do |conversation| %>
-    <div class="conversation-container">
-      <%= conversation.id %>
+            </div>
+          </div>
+          <div class = "card-product-infos d-flex flex-column justify-content-center">
+            <%= link_to "Start Convo", conversation_path(conversation), class: "btn btn-secondary" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
