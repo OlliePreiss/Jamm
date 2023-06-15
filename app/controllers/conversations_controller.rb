@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   def index
-    matches = Match.where(sender: current_user).or(Match.where(receiver: current_user))
+    matches = Match.matches_for_user(current_user.id)
     @conversations = matches.map(&:conversation)
   end
 

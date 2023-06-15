@@ -12,7 +12,6 @@ class Match < ApplicationRecord
     where("(sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)", sender_id, receiver_id, receiver_id, sender_id)
   end
 
-
   scope :matches_for, -> id do
     matches = where("(sender_id = ? OR receiver_id = ?) AND (senderstatus = ? AND receiverstatus = ?)", id, id, true, true)
 
@@ -22,7 +21,11 @@ class Match < ApplicationRecord
       profile_ids << new_id
     end
 
-    User.where(id: profile_ids )
+    User.where(id: profile_ids)
+  end
+
+  scope :matches_for_user, -> id do
+    where("(sender_id = ? OR receiver_id = ?) AND (senderstatus = ? AND receiverstatus = ?)", id, id, true, true)
   end
 
   scope :reccomend_matches_for, -> id do

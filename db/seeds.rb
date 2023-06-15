@@ -62,7 +62,7 @@ Match.create(
   sender: User.first,
   receiver: User.last,
   senderstatus: true,
-  receiverstatus: true
+  receiverstatus: false
 )
 
 puts "seed complete"

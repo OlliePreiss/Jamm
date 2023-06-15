@@ -12,11 +12,10 @@
           <div class="d-flex">
             <div>
             </div>
-            <div class="card-product-infos d-flex flex-column justify-content-center">
-              <%# # will the receiver always be the correct name to display? %>
-              <h2> <%= conversation.match.receiver.name%></h2>
-              <h2> <%= conversation.id%></h2>
-
+              <div class="card-product-infos d-flex flex-column justify-content-center">
+                <%# # will the receiver always be the correct name to display? %>
+                <h2> <%= conversation.match.sender.name %></h2>
+                <h2> <%= conversation.id%></h2>
             </div>
           </div>
           <div class = "card-product-infos d-flex flex-column justify-content-center">
@@ -27,3 +26,6 @@
     </div>
   <% end %>
 </div>
+
+
+<%# loop through each of the IDS, load the correct info for each id %>
