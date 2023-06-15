@@ -1,4 +1,8 @@
 <div class="container" data-controller="matches">
+  <div class="loader-wrapper"  data-controller="loader" data-loader-target="loaderWrapper">
+    <span class="loader"><span class="loader-inner">J</span></span>
+  </div>
+
   <% @profiles.each do |profile| %>
     <div class="profile-card" data-matches-target="profile">
       <!-- Display profile details -->
