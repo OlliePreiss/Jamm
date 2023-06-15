@@ -31,7 +31,7 @@ end
 20.times do
   User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: 'password',
     name: Faker::Name.name,
     location: "London",
     ability: rand(0..2),
@@ -57,10 +57,6 @@ users.each do |user|
   )
   puts "gave user #{user.id} instrument"
 end
-
-
-Conversation.create(lastmessage: 'Test')
-
 
 Match.create(
   sender: User.first,
