@@ -12,11 +12,18 @@
           <div class="d-flex">
             <div>
             </div>
-              <div class="card-product-infos d-flex flex-column justify-content-center">
+            <% if conversation.match.receiver == current_user %>
+               <div class="card-product-infos d-flex flex-column justify-content-center">
                 <%# # will the receiver always be the correct name to display? %>
-                <h2> <%= conversation.match.sender.name %></h2>
+                <h2> <%= conversation.match.sender.name%></h2>
                 <h2> <%= conversation.id%></h2>
-            </div>
+              <%else%>
+               <div class="card-product-infos d-flex flex-column justify-content-center">
+                <%# # will the receiver always be the correct name to display? %>
+                <h2> <%= conversation.match.receiver.name %></h2>
+                <h2> <%= conversation.id%></h2>
+            <% end %>
+          </div>
           </div>
           <div class = "card-product-infos d-flex flex-column justify-content-center">
             <%= link_to "Start Convo", conversation_path(conversation), class: "btn btn-secondary" %>

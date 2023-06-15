@@ -26,7 +26,18 @@ class Match < ApplicationRecord
 
   scope :matches_for_user, -> id do
     where("(sender_id = ? OR receiver_id = ?) AND (senderstatus = ? AND receiverstatus = ?)", id, id, true, true)
+
+    # profile_ids = []
+    # matches.each do |match|
+    #   new_id = match.sender_id == id ? match.receiver_id : match.sender_id
+    #   profile_ids << new_id
+    # end
+
+    # User.where(id: profile_ids)
   end
+
+  # for each user user.name
+  # how we do create an array of conversations from the array of confirmed match. How do we create
 
   scope :reccomend_matches_for, -> id do
     # get account ids to ignore
@@ -44,7 +55,5 @@ class Match < ApplicationRecord
   def create_conversation
     Conversation.create!(match: self)
   end
-
-
 
 end
