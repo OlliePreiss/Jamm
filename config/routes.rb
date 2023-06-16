@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
+  get 'bookings/show'
+  get 'bookings/new'
+  get 'bookings/create'
+  get 'bookings/edit'
+  get 'bookings/update'
+  get 'bookings/destroy'
   get 'band_spaces/index'
   get 'band_spaces/new'
   get 'band_spaces/create'
@@ -29,7 +36,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get "users/:id", to: "users#show", as: :show_user
   get "users/me/:id",to: "users#me", as: :my_profile
-  resources :band_spaces, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :genres, only: [:index]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]
@@ -41,6 +47,16 @@ Rails.application.routes.draw do
       get :confirmed
     end
   end
+
+  resources :band_spaces do
+    resources :bookings
+  end
+  resources :bookings do
+    collection do
+      get :mine
+    end
+  end
+
   resources :conversations, only: [:index, :show] do
     resources :messages, only: [:create]
   end

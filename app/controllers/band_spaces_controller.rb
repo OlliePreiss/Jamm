@@ -1,4 +1,5 @@
 class BandSpacesController < ApplicationController
+  before_action :set_bandspace, only: [:show, :destroy, :edit, :update]
   def index
 
     @bandspaces = BandSpace.all
@@ -9,6 +10,10 @@ class BandSpacesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {bandspace: bandspace})
       }
     end
+  end
+
+  def show
+    @booking = Booking.new
   end
 
   def edit
