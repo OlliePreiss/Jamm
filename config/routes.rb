@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'band_spaces/index'
+  get 'band_spaces/new'
+  get 'band_spaces/create'
+  get 'band_spaces/edit'
+  get 'band_spaces/update'
+  get 'band_spaces/destroy'
   devise_for :users, controllers: { registrations: "registrations" }
 
   root to: "pages#home"
@@ -23,6 +29,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get "users/:id", to: "users#show", as: :show_user
   get "users/me/:id",to: "users#me", as: :my_profile
+  resources :band_spaces, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :genres, only: [:index]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]
