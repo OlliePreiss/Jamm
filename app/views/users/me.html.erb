@@ -1,4 +1,5 @@
-<div class="container profile" >
+<div class="container profile">
+
 
   <% if @user.photourl.key %>
     <%=  cl_image_tag @user.photourl.key, crop: :fill, class: "avatar-profile" %>
