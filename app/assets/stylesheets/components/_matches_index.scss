@@ -1,10 +1,11 @@
 .match-background-colour {
   background-image: linear-gradient(45deg, $primary-red, $secondary-red);
+  border-top: 1px solid #F4F4F4;
+  border-bottom: 1px solid #F4F4F4;
 }
 
 .card-container {
   background-color: white;
-  margin: 20px;
 }
 
 
@@ -45,7 +46,27 @@
   margin-top: 10px;
   background: #212529;
   font-weight: 500;
-  width: 100%;
+  width: 45%;
   text-align: center;
   text-decoration: none;
+}
+
+.name {
+  padding-top: 10px;
+}
+
+.about-me {
+  padding-top: 10px;
+}
+
+.sample {
+  padding-top: 30px;
+}
+
+.instruments {
+  padding-top: 20px;
+}
+
+.genres {
+  padding-top: 20px;
 }

@@ -1,8 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <% if current_user.photourl.key %>
+    <a href="/users/me/:id">
+      <%=  cl_image_tag current_user.photourl.key, crop: :fill, class: "nav-avatar" %>
+    </a>
+  <% else  %>
+    <a href="/users/me/:id">
+      <img class="nav-avatar" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+    </a>
+  <% end %>
+  <a href="/matches" class="navbar-brand">JAMM</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/matches">Browse <span class="sr-only">(current)</span></a>
@@ -11,12 +21,8 @@
         <a class="nav-link" href="/conversations">Matches</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/users/me/:id">Profile</a>
-      </li>
-      <li class="nav-item active">
-        <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-flat" %>
+        <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: 'btn-sign-out' %>
       </li>
     </ul>
   </div>
-  <a class="navbar-brand">JAMM</a>
 </nav>

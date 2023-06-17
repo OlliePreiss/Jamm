@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon opacity-100"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <a class="navbar-brand">JAMM</a>
+  <div class="collapse navbar-collapse bg-white" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
       <li class="nav-item active">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -12,5 +13,4 @@
       </li>
     </ul>
   </div>
-  <a class="navbar-brand">JAMM</a>
 </nav>
