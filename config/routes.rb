@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get "users/:id", to: "users#show", as: :show_user
   get "users/me/:id",to: "users#me", as: :my_profile
+  get "users/new/:id", to: "users#new", as: :new_user_match
   resources :genres, only: [:index]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index]

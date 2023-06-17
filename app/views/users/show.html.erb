@@ -45,8 +45,9 @@
   <div class="sample">
     <h6 class="label">MY WORK</h6>
     <% if @user.sampleurl.key %>
-   <%=   cloudinary_url(@user.sampleurl.key, :resource_type=>"video", :transformation=>[
-    {:duration=>"10.0"}]) %>
+    <audio src="<%=   cloudinary_url(@user.sampleurl.key, :resource_type=>"video", :transformation=>[
+    {:duration=>"10.0"}]) %>"
+    controls controlslist="nodownload"></audio>
   <% else %>
     <audio src="//samplelib.com/lib/preview/mp3/sample-12s.mp3" controls controlslist="nodownload"></audio>
   <% end %>
