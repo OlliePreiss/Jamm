@@ -1,7 +1,13 @@
 .mapboxgl-popup {
   max-width: 200px;
   padding: 0;
-  margin: 0;
+  margin: 0;#map .mapboxgl-ctrl-geocoder {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1 !important;
+}
   border-radius: 5px;
 }
 
@@ -10,6 +16,11 @@
   margin: 0;
   padding: 0;
 }
+
+
+
+
+
 
 
 .mapboxgl-popup-close-button {
