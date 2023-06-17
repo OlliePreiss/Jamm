@@ -1,26 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Jamm</a>
+  <a class="navbar-brand" href="#">JAMM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <%# if user_signed_in? %>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/matches">Browse <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/matches/confirmed">Matches</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/conversations">Messages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/me/:id">Profile</a>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-flat" %>
-        </li>
-      </ul>
-    </div>
-  </nav>
+
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/matches">Browse <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/matches/confirmed">Matches</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/conversations">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/me/:id">Profile</a>
+      </li>
+      <li class="nav-item active">
+        <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-flat" %>
+      </li>
+    </ul>
+  </div>
+</nav>
