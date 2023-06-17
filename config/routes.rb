@@ -1,17 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/edit'
-  get 'bookings/update'
-  get 'bookings/destroy'
-  get 'band_spaces/index'
-  get 'band_spaces/new'
-  get 'band_spaces/create'
-  get 'band_spaces/edit'
-  get 'band_spaces/update'
-  get 'band_spaces/destroy'
   devise_for :users, controllers: { registrations: "registrations" }
 
   root to: "pages#home"
