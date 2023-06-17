@@ -1,12 +1,26 @@
-
+.container-profile {
+  background-color: white;
+}
 
 .profile-pic-name{
-  padding: 10px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.name {
+  padding-top: 10px;
+}
+
+.about-me {
+  padding-top: 10px;
+}
+
+.about-me {
+  padding-top: 15px;
 }
 
 .profile>h6 {
@@ -15,11 +29,7 @@
   text-decoration: underline;
 }
 
-.profile>div{
-  padding: 10px;
-}
-
 .profile{
   height: 90vh;
-  margin-bottom: 100px;
+  margin: 20px;
 }

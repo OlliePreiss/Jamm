@@ -1,55 +1,58 @@
-<div class="container profile" >
-<%# data-matches-target="profile" %>
+<div class="match-background-colour" data-controller="matches">
+  <div class="container profile" >
+  <%# data-matches-target="profile" %>
 
-  <div class="profile-pic-name">
-    <% if profile.photourl.key %>
-    <%=  cl_image_tag profile.photourl.key, crop: :fill, class: "avatar-profile" %>
-  <% else  %>
-    <img class="avatar-profile" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
-  <% end %>
-    <h1 class="name"><%= profile.name %></h1>
-  </div>
-
-  <div class="about-me">
-    <h6 class="label">ABOUT ME</h6>
-    <p><%= profile.about%></p>
-  </div>
-
-  <div class="instruments">
-    <h6 class="label">WHAT DO I PLAY</h6>
-    <% profile.instruments.each do |instrument| %>
-    <p><%= instrument.instrument %></p>
+    <div class="profile-pic-name">
+      <% if profile.photourl.key %>
+      <%=  cl_image_tag profile.photourl.key, crop: :fill, class: "avatar-profile" %>
+    <% else  %>
+      <img class="avatar-profile" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
     <% end %>
-  </div>
+    </div>
 
-  <div class="genres">
-    <h6 class="label">WHAT TYPE OF MUSIC DO I PLAY/LIKE</h6>
-    <% profile.genres.each do |genre| %>
-    <p><%= genre.genre %></p>
+    <div class="name">
+      <h1 class="name"><%= profile.name %></h1>
+    </div>
+
+    <div class="about-me">
+      <p class="profile-bio"><%= profile.about%></p>
+    </div>
+
+    <div class="sample">
+      <% if profile.sampleurl.key %>
+      <audio src="<%=   cloudinary_url(profile.sampleurl.key, :resource_type=>"video", :transformation=>[
+      {:duration=>"10.0"}]) %>"
+      controls controlslist="nodownload"></audio>
+    <% else %>
+      <audio src="//samplelib.com/lib/preview/mp3/sample-12s.mp3" controls controlslist="nodownload"></audio>
     <% end %>
+    </div>
+
+    <div class="instruments">
+      <h6 class="label">WHAT DO I PLAY</h6>
+      <% profile.instruments.each do |instrument| %>
+      <p><%= instrument.instrument %></p>
+      <% end %>
+    </div>
+
+    <div class="genres">
+      <h6 class="label">WHAT TYPE OF MUSIC DO I PLAY/LIKE</h6>
+      <% profile.genres.each do |genre| %>
+      <p><%= genre.genre %></p>
+      <% end %>
+    </div>
+
+    <div class="commitment">
+      <h6 class="label">WHAT AM I LOOKING FOR</h6>
+      <%= commitment_to_string(profile.commitment) %>
+    </div>
+
+    <div class="ability">
+      <h6 class="label">HOW SKILLED AM I</h6>
+      <%= ability_to_string(profile.ability) %>
+    </div>
+
+
+
   </div>
-
-  <div class="commitment">
-    <h6 class="label">WHAT AM I LOOKING FOR</h6>
-    <%= commitment_to_string(profile.commitment) %>
-  </div>
-
-  <div class="ability">
-    <h6 class="label">HOW SKILLED AM I</h6>
-    <%= ability_to_string(profile.ability) %>
-  </div>
-
-
-
-  <div class="sample">
-    <h6 class="label">MY WORK</h6>
-    <% if profile.sampleurl.key %>
-    <audio src="<%=   cloudinary_url(profile.sampleurl.key, :resource_type=>"video", :transformation=>[
-    {:duration=>"10.0"}]) %>"
-    controls controlslist="nodownload"></audio>
-  <% else %>
-    <audio src="//samplelib.com/lib/preview/mp3/sample-12s.mp3" controls controlslist="nodownload"></audio>
-  <% end %>
-  </div>
-
 </div>
