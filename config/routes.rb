@@ -35,6 +35,16 @@ Rails.application.routes.draw do
       get :confirmed
     end
   end
+
+  resources :band_spaces do
+    resources :bookings
+  end
+  resources :bookings do
+    collection do
+      get :mine
+    end
+  end
+
   resources :conversations, only: [:index, :show] do
     resources :messages, only: [:create]
   end
