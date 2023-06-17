@@ -4,6 +4,19 @@
   height: 50px;
   border-radius: 50%;
 }
+
+.avatar-chat {
+  vertical-align: middle;
+  width: 50px !important;
+  height: 50px !important;
+  overflow: hidden;
+  border-radius: 50%;
+   img{
+    width: 100%;
+    margin-top: -25px;
+   }
+}
+
 .avatar-large {
   vertical-align: middle;
   width: 56px;

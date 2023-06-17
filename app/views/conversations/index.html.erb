@@ -13,26 +13,32 @@
             <div>
             </div>
             <% if conversation.match.receiver == current_user %>
-               <div class="card-product-infos d-flex flex-column justify-content-center">
-                <%# # will the receiver always be the correct name to display? %>
-                <h2> <%= conversation.match.sender.name%></h2>
-                <h2> <%= conversation.id%></h2>
-              <%else%>
-               <div class="card-product-infos d-flex flex-column justify-content-center">
-                <%# # will the receiver always be the correct name to display? %>
+              <%= link_to show_user_path(conversation.match.sender) do %>
+                  <%=cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                  <div class="card-product-infos d-flex flex-column justify-content-center">
+                  <h2> <%= conversation.match.sender.name%></h2>
+                <% end %>
+            <%else%>
+              <%= link_to show_user_path(conversation.match.receiver) do %>
+                <%=cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                <div class="card-product-infos d-flex flex-column justify-content-center">
                 <h2> <%= conversation.match.receiver.name %></h2>
-                <h2> <%= conversation.id%></h2>
+              <% end %>
             <% end %>
           </div>
           </div>
           <div class = "card-product-infos d-flex flex-column justify-content-center">
-            <%= link_to "Start Convo", conversation_path(conversation), class: "btn btn-secondary" %>
+            <%= link_to "Message", conversation_path(conversation), class: "btn btn-secondary" %>
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
+
+
+
+
 
 
 <%# loop through each of the IDS, load the correct info for each id %>
