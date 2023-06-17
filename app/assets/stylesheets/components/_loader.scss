@@ -3,7 +3,7 @@ body {
   padding: 0;
   width:100vw;
   height: 100vh;
-  background-color: #eee;
+  background-color: white;
 }
 .content {
   display: flex;
@@ -18,7 +18,7 @@ body {
   position: absolute;
   top: 64px;
   left: 0;
-  background-color: #242f3f;
+  background-image: linear-gradient(45deg, $primary-red, $secondary-red);
   display:flex;
   justify-content: center;
   align-items: center;
