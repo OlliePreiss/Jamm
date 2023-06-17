@@ -1,4 +1,5 @@
-<div class="container profile" >
+<div class="container profile">
+
 
   <% if @user.photourl.key %>
     <%=  cl_image_tag @user.photourl.key, crop: :fill, class: "avatar-profile" %>
@@ -45,7 +46,6 @@
     <audio src="<%=   cloudinary_url(@user.sampleurl.key, :resource_type=>"video", :transformation=>[
     {:duration=>"10.0"}]) %>"
     controls controlslist="nodownload"></audio>
-
   <% else %>
     <audio src="//samplelib.com/lib/preview/mp3/sample-12s.mp3" controls controlslist="nodownload"></audio>
   <% end %>
