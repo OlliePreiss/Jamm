@@ -13,16 +13,20 @@
             <div>
             </div>
             <% if conversation.match.receiver == current_user %>
-              <%= link_to show_user_path(conversation.match.sender) do %>
+              <%= link_to conversation_path(conversation.match.sender) do %>
                   <%=cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
                   <div class="card-product-infos d-flex flex-column justify-content-center">
                   <h2> <%= conversation.match.sender.name%></h2>
+                  <% last_message = conversation.messages.last %>
+                  
+                  <p><%=last_message.content  %></p>
                 <% end %>
             <%else%>
-              <%= link_to show_user_path(conversation.match.receiver) do %>
+              <%= link_to conversation_path(conversation.match.receiver) do %>
                 <%=cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
                 <div class="card-product-infos d-flex flex-column justify-content-center">
                 <h2> <%= conversation.match.receiver.name %></h2>
+
               <% end %>
             <% end %>
           </div>
