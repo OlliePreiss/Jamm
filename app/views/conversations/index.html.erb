@@ -13,36 +13,39 @@
             <div>
             </div>
             <% if conversation.match.receiver == current_user %>
-              <%= link_to conversation_path(conversation.match.sender) do %>
+              <%= link_to conversation_path(conversation) do %>
                   <%=cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
                   <div class="card-product-infos d-flex flex-column justify-content-center">
                   <h2> <%= conversation.match.sender.name%></h2>
-                  <% last_message = conversation.messages.last %>
-                  
-                  <p><%=last_message.content  %></p>
+                    <% if conversation.messages.last == nil %>
+                      <p class="fw-bolder"> Send a message!</p>
+                    <% else %>
+                      <p><%=conversation.messages.last.content  %></p>
+                    <% end %>
                 <% end %>
             <%else%>
-              <%= link_to conversation_path(conversation.match.receiver) do %>
+              <%= link_to conversation_path(conversation) do %>
                 <%=cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
                 <div class="card-product-infos d-flex flex-column justify-content-center">
                 <h2> <%= conversation.match.receiver.name %></h2>
-
+                    <% if conversation.messages.last == nil %>
+                      <p class="fw-bolder"> Send a message!</p>
+                    <% else %>
+                      <p><%=conversation.messages.last.content  %></p>
+                    <% end %>
               <% end %>
             <% end %>
           </div>
           </div>
-          <div class = "card-product-infos d-flex flex-column justify-content-center">
-            <%= link_to "Message", conversation_path(conversation), class: "btn btn-secondary" %>
+              <div class = "card-product-infos d-flex flex-column justify-content-center">
+              <%# to be updated with a stimulus controller to listen for when an unread message has been created %>
+              <div class= "new-message-notification"></div>
+
+              <div class= "no-new-message"></div>
+
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
-
-
-
-
-
-
-<%# loop through each of the IDS, load the correct info for each id %>

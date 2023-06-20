@@ -11,6 +11,20 @@
   }
 }
 
+.card-product .new-match {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $light-grey;
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  background-color: #D8B4A0;
+}
+
 .card-product img {
   height: 120px;
   width: 120px;
