@@ -21,9 +21,12 @@
 
    <% if user_signed_in?  %>
       <%= render "layouts/livenav" %>
+      <div class="top-buffer">
+        <%= yield %>
+      </div>
     <% else %>
       <%= render "layouts/nav" %>
+      <%= yield %>
     <% end %>
-    <%= yield %>
   </body>
 </html>

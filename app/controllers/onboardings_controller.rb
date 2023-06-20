@@ -2,7 +2,7 @@
 # to try move from having all sign up details on the Devise user sign-up page
 # this controller is being user as a way to create customer routes/actions/views for each page
 
-# class OnboardingsController < ApplicationController
+class OnboardingsController < ApplicationController
 
 #   before_action :set_user, only: [:ability, :commitment, :about, :update]
 
@@ -40,4 +40,4 @@
 #     @user = User.find(params[:id])
 #   end
 
-# end
+end
