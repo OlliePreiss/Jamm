@@ -3,7 +3,7 @@
 >
   <h1>Room #<%= @conversation.id %></h1>
 
-  <div class="messages" data-conversation-subscription-target="messages">
+  <div class="messages" id="messages" data-conversation-subscription-target="messages" data-controller="scroll">
     <% @conversation.messages.each do |message| %>
      <%= render "messages/message", message: message %>
     <% end %>
