@@ -1,4 +1,8 @@
-
+.profile-card {
+  margin: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
 
 .profile-pic-name{
   padding: 10px;
@@ -15,11 +19,27 @@
   text-decoration: underline;
 }
 
-.profile>div{
-  padding: 10px;
+.profile{
+  height: 84vh;
+  padding: 0px 25px;
+  margin-bottom: 100px;
 }
 
-.profile{
-  height: 90vh;
-  margin-bottom: 100px;
+.display-pill-container {
+  display: flex;
+}
+
+.display-pill {
+  color: black;
+  padding: 8px 30px;
+  border-radius: 50px;
+  margin-right: 20px;
+  background: $secondary-red;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+}
+
+audio {
+  width: 100%;
 }
