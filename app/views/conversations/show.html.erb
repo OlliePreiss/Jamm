@@ -9,7 +9,8 @@
     <% end %>
   </div>
 
-  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"} do |f| %>
+  <%= simple_form_for [@conversation, @message], html: {class: "d-flex"},
+  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"} do |f| %>
     <%= f.input :content,
       label: false,
       placeholder: "Send message",
