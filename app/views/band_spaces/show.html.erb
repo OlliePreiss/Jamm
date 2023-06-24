@@ -1,36 +1,37 @@
-<div class="container bandspace d-flex flex-column">
-  <h2> <%= @bandspace.name %> </h2>
-  <div class=" d-flex host-capacity-price">
-      <p> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <strong><%= @bandspace.capacity %></strong></p>
-  </div>
+     <% if @bandspace.photo_url.key %>
+      <%=  cl_image_tag @bandspace.photo_url.key, height: 300 , width: 900, crop: :fill, class: "image" %>
+    <% else  %>
+    <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
+    <% end %>
 
-  <% if @bandspace.photo_url.key %>
-    <%=  cl_image_tag @bandspace.photo_url.key, height: 500 , width: 1000, crop: :fill, class: "image" %>
-  <% else  %>
-  <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
-  <% end %>
+<div class="match-background-colour band-cont">
+  <div class="container bandspace d-flex flex-column">
 
-  <div class="info-and-booking d-flex justify-content-between col-9">
-    <div class="description">
-      <p> <%= @bandspace.address %> </p>
-      <p> <%= @bandspace.description %> </p>
-
-    <div class="backspace">
-      <%= link_to "Back to Bandspaces", band_spaces_path, class: "btn btn-flat" %>
+    <h2> <%= @bandspace.name %> </h2>
+    <div class=" d-flex host-capacity-price">
+        <p id="capacity"> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <strong><%= @bandspace.capacity %></strong></p>
+        <p> <i class="fa-solid fa-location-pin"></i> <%= @bandspace.address %> </p>
     </div>
-    </div>
-    <div class="booking">
-      <div class="make-a-booking">
-        <div class="form-label-price d-flex justify-content-between">
-          <h3>Date</h3>
-          <p><strong>£<%= @bandspace.price %></strong> per day </p>
+
+    <div class="info-and-booking">
+      
+      <div class="description">
+        <p> <%= @bandspace.description %> </p>
+      <%# <div class="backspace">
+         link_to "Back to Bandspaces", band_spaces_path, class: "btn btn-flat"
+      </div> %>
+      </div>
+      <div class="booking">
+        <div class="make-a-booking">
+          <div class="form-label-price d-flex justify-content-between">
+            <h6>Date</h6>
+            <p><strong>£<%= @bandspace.price %></strong> per day </p>
+          </div>
+          <div class="booking-form my-1">
+            <%= render :partial => '/bookings/form'%>
+          </div>
         </div>
-        <div class="booking-form my-1">
-          <%= render :partial => '/bookings/form'%>
         </div>
       </div>
-  </div>
-  </div>
-
-  <div class="container">
-
+    </div>
+</div>
