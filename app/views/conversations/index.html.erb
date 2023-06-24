@@ -13,7 +13,11 @@
             </div>
             <% if conversation.match.receiver == current_user %>
               <%= link_to conversation_path(conversation) do %>
-                  <%=cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                  <% if conversation.match.sender.photourl.key %>
+                    <%= cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                  <% else  %>
+                    <img class="avatar-chat" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+                  <% end %>
                   <div class="card-product-infos d-flex flex-column justify-content-center">
                   <h2> <%= conversation.match.sender.name%></h2>
                     <% if conversation.messages.last == nil %>
@@ -24,7 +28,11 @@
                 <% end %>
             <%else%>
               <%= link_to conversation_path(conversation) do %>
-                <%=cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                <% if conversation.match.sender.photourl.key %>
+                  <%= cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                <% else  %>
+                  <img class="avatar-chat" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+                <% end %>
                 <div class="card-product-infos d-flex flex-column justify-content-center">
                 <h2> <%= conversation.match.receiver.name %></h2>
                     <% if conversation.messages.last == nil %>
