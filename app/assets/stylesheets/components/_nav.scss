@@ -6,6 +6,7 @@
 
 .nav-link {
   padding: 0px;
+
 }
 
 .navbar-light {
@@ -22,6 +23,7 @@
 
 .navbar-toggler {
   margin-right: 10px;
+  margin-left: 10px;
   border: 0px solid white;
   padding: 0px;
 }
@@ -35,7 +37,7 @@
 }
 
 .navbar-brand {
-  margin: 0px;
+  margin: 0px 10px;
   color: black;
   font-weight: 600;
   font-size: 16px;

@@ -1,7 +1,6 @@
 
 <div class="container profile" >
 <%# data-matches-target="profile" %>
-
   <div class="profile-pic-name">
   <% if profile.photourl.key %>
     <%=  cl_image_tag profile.photourl.key, crop: :fill, class: "avatar-profile" %>

@@ -1,0 +1,72 @@
+.bandspace {
+
+  background-color: white;
+  border-radius: 5px;
+  height: 80%;
+}
+
+
+.bandspace h2 {
+  font-weight: 700;
+  font-size: 32px;
+  margin: 10px 0 ;
+}
+
+.bandspace .host-capacity-price {
+  display: flex;
+  // align-items: left;
+  font-size: 15px;
+  margin-bottom: 10px ;
+  flex-wrap: wrap;
+
+}
+
+#capacity{
+  margin-right: 10px;
+}
+
+
+.image {
+  width: 100vw;
+  max-width: 400px;
+  object-fit: cover;
+  vertical-align: center;
+}
+
+.bandspace .info-and-booking {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.bandspace .description p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.bandspace .backspace {
+  margin-left: auto;
+}
+
+.band-cont{
+  padding: 25px 10px 40px 10px;
+
+}
+
+.bandspace .make-a-booking {
+  margin-top: 20px;
+}
+
+.bandspace .form-label-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.bandspace .form-label-price h3 {
+  margin: 0;
+}
+
+.bandspace .form-label-price p {
+  margin: 0;
+}
