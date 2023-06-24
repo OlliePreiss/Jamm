@@ -1,15 +1,15 @@
 <div class="container chatroom" data-controller="conversation-subscription"
   data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
 >
-<% if @conversation.match.receiver == current_user %>
-  <a href="" class="match-details">
-    <h1> <%= @conversation.match.sender.name %></h1>
-  </a>
-<% else %>
-  <a href="" class="match-details">
-    <h1> <%= @conversation.match.receiver.name %> </h1>
-  </a>
-<% end %>
+  <% if @conversation.match.receiver == current_user %>
+    <div class="match-details">
+      <%= link_to "#{@conversation.match.sender.name}", show_user_path(@conversation.match.sender.id), class: "match-details-text"  %>
+    </div>
+  <% else %>
+      <div class="match-details">
+        <%= link_to "#{@conversation.match.receiver.name}", show_user_path(@conversation.match.receiver.id), class: "match-details-text"  %>
+       </div>
+  <% end %>
 
   <div class="messages" data-conversation-subscription-target="messages">
     <% @conversation.messages.each do |message| %>
@@ -23,6 +23,6 @@
       placeholder: "Send message",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.submit "Send", class: "btn btn-messaging mb-3" %>
   <% end %>
 </div>
