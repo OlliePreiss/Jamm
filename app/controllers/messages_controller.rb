@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     @message.conversation = @conversation
     @message.user = current_user
     if @message.save
+      # set_has_unread_messages_to_the_other_user(conversation: @conversation, message: @message)
       ConversationChannel.broadcast_to(
         @conversation,
         render_to_string(partial: "message", locals: {message: @message})
@@ -17,6 +18,18 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def set_has_unread_messages_to_the_other_user(conversation:, message:)
+    latest_message_timestamp = message.created_at
+    messaging_timestamp = conversation
+                          .messaging_timestamps
+                          .where(action: "signout")
+                          .where.not(user: current_user)
+                          .first&.created_at ||
+                          conversation.match.created_at
+    has_unread_messages = latest_message_timestamp > messaging_timestamp
+    conversation.match.conversations.update!(has_unread_messages:)
+  end
 
   def message_params
     params.require(:message).permit(:content)
