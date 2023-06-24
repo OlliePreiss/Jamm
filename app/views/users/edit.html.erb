@@ -2,9 +2,17 @@
   <%= simple_form_for [@user] do |f| %>
     <%= f.input :name %>
     <%= f.error :location %>
-    <%= f.input :ability %>
-    <%= f.input :commitment %>
     <%= f.input :about %>
+    <%= f.input :ability,
+                as: :radio_buttons,
+                collection: [['0', 'Beginner'], ['1', 'Experience'], ['1', 'Pro']], label_method: :second, value_method: :first,
+                hint: 'We\'ll use to match you with people of similar ability',
+                required: false %>
+    <%= f.input :commitment,
+                as: :radio_buttons,
+                collection: [['0', 'Once in a while'], ['1', 'A few times a month'], ['1', 'Weekly']], label_method: :second, value_method: :first,
+                hint: 'We\'ll use this to match you with people of similar commitment',
+                required: false %>
     <%= f.input :sampleurl %>
     <%= f.input :photourl %>
     <%= f.submit "Update", class: "btn btn-main" %>
