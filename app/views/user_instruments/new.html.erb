@@ -6,7 +6,7 @@
 
   <div class="form-padding">
     <%= simple_form_for @userinstrument do |f| %>
-      <%= f.association :instrument, label_method: :instrument, value_method: :id, as: :radio_buttons %>
+      <%= f.association :instrument, label_method: :instrument, value_method: :id, as: :check_boxes, multiple: true %>
       <%= f.button :submit, 'Next', class: "btn-main" %>
     <% end %>
   </div>

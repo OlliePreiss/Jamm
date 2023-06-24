@@ -1,9 +1,63 @@
 .my-profile {
-  width: 80%;
+  width: 90%;
   margin: auto;
   background-color: white;
 }
 
+
+.avatar-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-box {
+  padding-top: 20px;
+}
+
 .avatar-profile {
   margin-top: 20px;
+}
+
+.my-about-me {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
+}
+
+
+.my-location {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
+}
+
+.my-instruments {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
+}
+
+.my-genres {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
+}
+
+.commitment {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
+}
+
+.ability {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
+}
+
+.my-sample {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid $very-light-grey;
 }

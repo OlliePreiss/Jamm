@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_one_attached :sampleurl
   # validates_attachment_content_type :song, :content_type => [ 'application/octet-stream', 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
-  validates :about, length: { minimum: 10, maximum: 100 }
+  validates :about, length: { minimum: 10, maximum: 250 }
   has_one_attached :photourl
 
   devise :database_authenticatable, :registerable,
