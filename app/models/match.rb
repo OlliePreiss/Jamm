@@ -81,4 +81,7 @@ class Match < ApplicationRecord
 
     filtered_users
   end
+  def create_conversation
+    Conversation.create!(match: self)
+  end
 end
