@@ -12,26 +12,39 @@
             <div>
             </div>
             <% if conversation.match.receiver == current_user %>
-               <div class="card-product-infos d-flex flex-column justify-content-center">
-                <%# # will the receiver always be the correct name to display? %>
-                <h2> <%= conversation.match.sender.name%></h2>
-                <h2> <%= conversation.id%></h2>
-              <%else%>
-               <div class="card-product-infos d-flex flex-column justify-content-center">
-                <%# # will the receiver always be the correct name to display? %>
+              <%= link_to conversation_path(conversation) do %>
+                  <%=cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                  <div class="card-product-infos d-flex flex-column justify-content-center">
+                  <h2> <%= conversation.match.sender.name%></h2>
+                    <% if conversation.messages.last == nil %>
+                      <p class="fw-bolder"> Send a message!</p>
+                    <% else %>
+                      <p><%=conversation.messages.last.content  %></p>
+                    <% end %>
+                <% end %>
+            <%else%>
+              <%= link_to conversation_path(conversation) do %>
+                <%=cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                <div class="card-product-infos d-flex flex-column justify-content-center">
                 <h2> <%= conversation.match.receiver.name %></h2>
-                <h2> <%= conversation.id%></h2>
+                    <% if conversation.messages.last == nil %>
+                      <p class="fw-bolder"> Send a message!</p>
+                    <% else %>
+                      <p><%=conversation.messages.last.content  %></p>
+                    <% end %>
+              <% end %>
             <% end %>
           </div>
           </div>
-          <div class = "card-product-infos d-flex flex-column justify-content-center">
-            <%= link_to "Start Convo", conversation_path(conversation), class: "btn btn-secondary" %>
+              <div class = "card-product-infos d-flex flex-column justify-content-center">
+              <%# to be updated with a stimulus controller to listen for when an unread message has been created %>
+              <div class= "new-message-notification"></div>
+
+              <div class= "no-new-message"></div>
+
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
-
-
-<%# loop through each of the IDS, load the correct info for each id %>

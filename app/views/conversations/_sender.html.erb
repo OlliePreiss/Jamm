@@ -1,0 +1,15 @@
+<div>
+  <% @conversations.each do |conversation| %>
+    <div class="card-product d-flex justify-content-between mb-1">
+      <div class="d-flex">
+          <div>
+          </div>
+            <%=cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+              <div class="card-product-infos d-flex flex-column justify-content-center">
+            <h2> <%= conversation.match.sender.name%></h2>
+              <div class = "card-product-infos d-flex flex-column justify-content-center">
+                <%= link_to "Message", conversation_path(conversation), class: "btn btn-secondary" %>
+              </div>
+          </div>
+      <% end %>
+</div>
