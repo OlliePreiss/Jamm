@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   get "users/:id", to: "users#show", as: :show_user
+  get "messaging_timestamps/subscribe", to: "messaging_timestamps#subscribe"
+  get "messaging_timestamps/unsubscribe", to: "messaging_timestamps#unsubscribe"
   get "users/me/:id",to: "users#me", as: :my_profile
   get "users/new/:id", to: "users#new", as: :new_user_match
   resources :genres, only: [:index]

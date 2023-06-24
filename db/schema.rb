@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_141243) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_24_093100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,10 +67,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_141243) do
   end
 
   create_table "conversations", force: :cascade do |t|
-    t.string "lastmessage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "match_id"
+    t.boolean "has_unread_messages", default: false
     t.index ["match_id"], name: "index_conversations_on_match_id"
   end
 
@@ -103,8 +103,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_141243) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "read_status"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "messaging_timestamps", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
+    t.string "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messaging_timestamps_on_conversation_id"
+    t.index ["user_id"], name: "index_messaging_timestamps_on_user_id"
   end
 
   create_table "user_genres", force: :cascade do |t|
@@ -152,6 +163,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_141243) do
   add_foreign_key "matches", "users", column: "sender_id"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "messaging_timestamps", "conversations"
+  add_foreign_key "messaging_timestamps", "users"
   add_foreign_key "user_genres", "genres"
   add_foreign_key "user_genres", "users"
   add_foreign_key "user_instruments", "instruments"
