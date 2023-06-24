@@ -1,4 +1,43 @@
-// Specific CSS for your home-page
- .banner {
-  background-position: 40% 75%
+Specific CSS for your home-page
+
+ .heading{
+  display: flex;
  }
+
+.banner{
+
+  body{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+  .heading{
+  color: #000;
+  top: 30%;
+  left: 20%;
+  }
+  .heading::after{
+  content: ' ';
+  position: absolute;
+  padding: 0 2px;
+  color: #fff;
+  margin-left: 5px;
+  background: #000;
+  animation: textrotate 7s linear infinite;
+  -webkit-animation: textrotate 7s linear infinite;
+  }
+  @keyframes textrotate{
+  0%{
+    content: 'music';
+  }
+  50%{
+    content: 'mates';
+  }
+  100%{
+    content: 'memories';
+  }
+  }
+}

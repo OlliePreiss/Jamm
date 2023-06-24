@@ -12,26 +12,47 @@
             <div>
             </div>
             <% if conversation.match.receiver == current_user %>
-               <div class="card-product-infos d-flex flex-column justify-content-center">
-                <%# # will the receiver always be the correct name to display? %>
-                <h2> <%= conversation.match.sender.name%></h2>
-                <h2> <%= conversation.id%></h2>
-              <%else%>
-               <div class="card-product-infos d-flex flex-column justify-content-center">
-                <%# # will the receiver always be the correct name to display? %>
+              <%= link_to conversation_path(conversation) do %>
+                  <% if conversation.match.sender.photourl.key %>
+                    <%= cl_image_tag("#{conversation.match.sender.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                  <% else  %>
+                    <img class="avatar-chat" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+                  <% end %>
+                  <div class="card-product-infos d-flex flex-column justify-content-center">
+                  <h2> <%= conversation.match.sender.name%></h2>
+                    <% if conversation.messages.last == nil %>
+                      <p class="fw-bolder"> Send a message!</p>
+                    <% else %>
+                      <p><%=conversation.messages.last.content  %></p>
+                    <% end %>
+                <% end %>
+            <%else%>
+              <%= link_to conversation_path(conversation) do %>
+                <% if conversation.match.sender.photourl.key %>
+                  <%= cl_image_tag("#{conversation.match.receiver.photourl.key}", crop: :fill, class: "avatar-chat", alt: "Profile Pic") %>
+                <% else  %>
+                  <img class="avatar-chat" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="" srcset="">
+                <% end %>
+                <div class="card-product-infos d-flex flex-column justify-content-center">
                 <h2> <%= conversation.match.receiver.name %></h2>
-                <h2> <%= conversation.id%></h2>
+                    <% if conversation.messages.last == nil %>
+                      <p class="fw-bolder"> Send a message!</p>
+                    <% else %>
+                      <p><%=conversation.messages.last.content  %></p>
+                    <% end %>
+              <% end %>
             <% end %>
           </div>
           </div>
-          <div class = "card-product-infos d-flex flex-column justify-content-center">
-            <%= link_to "Start Convo", conversation_path(conversation), class: "btn btn-secondary" %>
+              <div class = "card-product-infos d-flex flex-column justify-content-center">
+              <%# to be updated with a stimulus controller to listen for when an unread message has been created %>
+              <div class= "new-message-notification"></div>
+
+              <div class= "no-new-message"></div>
+
           </div>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
-
-
-<%# loop through each of the IDS, load the correct info for each id %>

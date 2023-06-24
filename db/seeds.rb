@@ -28,7 +28,7 @@ genre_seed.each do |genre|
   puts "added #{genre}"
 end
 
-20.times do
+5.times do
   User.create!(
     email: Faker::Internet.email,
     password: 'password',

@@ -1,7 +1,15 @@
 <div class="container chatroom" data-controller="conversation-subscription"
   data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
 >
-  <h1>Room #<%= @conversation.id %></h1>
+<% if @conversation.match.receiver == current_user %>
+  <a href="" class="match-details">
+    <h1> <%= @conversation.match.sender.name %></h1>
+  </a>
+<% else %>
+  <a href="" class="match-details">
+    <h1> <%= @conversation.match.receiver.name %> </h1>
+  </a>
+<% end %>
 
   <div class="messages" data-conversation-subscription-target="messages">
     <% @conversation.messages.each do |message| %>
