@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   get "users/:id", to: "users#show", as: :show_user
   get "users/me/:id",to: "users#me", as: :my_profile
   get "users/new/:id", to: "users#new", as: :new_user_match
-  resources :genres, only: [:index]
+  resources :genres, only: [:index, :new, :create]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :instruments, only: [:index]
+  resources :instruments, only: [:index, :new, :create]
   resources :user_instruments, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :matches, only: [:index] do
     post :approve, on: :collection

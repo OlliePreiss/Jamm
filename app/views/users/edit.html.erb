@@ -1,4 +1,5 @@
 <div class="container-box">
+  <div class="edit-box">
   <%= simple_form_for [@user] do |f| %>
     <%= f.input :name %>
     <%= f.error :location %>
@@ -17,3 +18,5 @@
     <%= f.input :photourl %>
     <%= f.submit "Update", class: "btn btn-main" %>
   <% end %>
+  </div>
+</div>
