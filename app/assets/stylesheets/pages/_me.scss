@@ -2,6 +2,7 @@
   width: 90%;
   margin: auto;
   background-color: white;
+  margin-bottom: 20px;
 }
 
 
@@ -9,6 +10,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.name {
+  margin-top: 10px;
 }
 
 .edit-box {
@@ -60,4 +65,8 @@
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid $very-light-grey;
+}
+
+.edit-box {
+  margin-bottom: 20px;
 }

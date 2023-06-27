@@ -19,6 +19,7 @@
   }
 
 .nav-avatar {
+  object-fit: cover;
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -32,6 +33,7 @@
 }
 
 .avatar-profile {
+  object-fit: cover;
   vertical-align: middle;
   width:175px;
   height:175px;
@@ -44,6 +46,7 @@
 }
 
 .avatar-profile-me {
+  object-fit: cover;
   vertical-align: middle;
   width:125px;
   height:125px;
