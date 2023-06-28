@@ -7,6 +7,7 @@
     <%= f.input :description %>
     <%= f.input :capacity , as: :numeric, input_html:{ min:"0"} %>
     <%= f.input :price %>
+    <%= f.input :rating, as: :numeric, input_html:{ min:"0", max:"5"}%>
     <%= f.submit "Submit Bandspace", class: "btn btn-flat" %>
   <% end %>
 </div>
