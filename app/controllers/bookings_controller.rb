@@ -25,7 +25,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     # raise
     if @booking.save!
-      redirect_to band_spaces_path,  notice: 'Booking was successfully created.'
+      redirect_to confirmation_path(@booking), notice: 'Booking was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -36,6 +38,11 @@ class BookingsController < ApplicationController
       format.html { redirect_to mine_bookings_path, notice: "booking was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def confirmation
+    @booking = Booking.find(params[:id])
+    @bandspace = @booking.band_space
   end
 
   private
