@@ -24,8 +24,9 @@ Rails.application.routes.draw do
   get "users/:id", to: "users#show", as: :show_user
   get "messaging_timestamps/subscribe", to: "messaging_timestamps#subscribe"
   get "messaging_timestamps/unsubscribe", to: "messaging_timestamps#unsubscribe"
-  get "users/me/:id",to: "users#me", as: :my_profile
+  get "users/me/:id", to: "users#me", as: :my_profile
   get "users/new/:id", to: "users#new", as: :new_user_match
+  get "bookings/confirmation/:id", to: "bookings#confirmation", as: :confirmation
   resources :genres, only: [:index, :new, :create]
   resources :user_genres, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :instruments, only: [:index, :new, :create]

@@ -74,3 +74,27 @@
 .mapboxgl-popup-content {
   text-decoration: none;
 }
+
+.booking-conf{
+  margin: 30% 0 30% 0;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  .booking-details{
+    margin-top: 20px;
+  }
+}
+
+.where{
+  margin: 40px 0 20px 0;
+  h3{
+    font-weight: bolder;
+  }
+}
+
+.when{
+  margin: 20px 0 40px 0;
+  h3{
+    font-weight: bolder;
+  }
+}

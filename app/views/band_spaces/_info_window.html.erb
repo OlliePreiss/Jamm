@@ -1,4 +1,4 @@
-<%= link_to band_space_path(bandspace) do %>
+<%= link_to band_space_path(bandspace), id: "bandspace-map-card", style: "text-decoration:none !important; color: black;" do %>
 <div class="popup">
   <% if bandspace.photo_url.key %>
     <%= cl_image_tag bandspace.photo_url.key, class: "card-img-top rounded" %>

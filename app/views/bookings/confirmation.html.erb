@@ -1,7 +1,21 @@
-<div class="container">
-  <h1> Congratulations, your booking is complete</h1>
-  <div class="booking-details">
-    <h3> Venue: <%= @bandspace.name %></h3>
-    <%= link_to "Back to conversations", conversations_path %>
+<div class="match-background-colour">
+  <div class="container booking-conf">
+    <h1> Congratulations, your booking is complete</h1>
+    <% if @bandspace.photo_url.key %>
+        <%=  cl_image_tag @bandspace.photo_url.key, height: 300 , width: 900, crop: :fill, class: "avatar-profile" %>
+      <% else  %>
+      <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="avatar-profile">
+      <% end %>
+    <div class="booking-details">
+        <div class="where">
+          <h3> Where: </h3>
+          <h4><%= @bandspace.name %></h4>
+        </div>
+        <div class="when">
+          <h3> When:</h3>
+          <h4><%= @booking.date.strftime("%A, %b %d") %></h4>
+        </div>
+      <%= link_to "Back to conversations", conversations_path, class:"btn-main" %>
+    </div>
   </div>
 </div>

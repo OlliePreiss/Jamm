@@ -7,6 +7,7 @@
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
   z-index: 1 !important;
+  text-decoration: none !important;
 }
   border-radius: 5px;
 }
@@ -36,4 +37,8 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+#bandspace-map-card a:link, #bandspace-map-card a:visited, #bandspace-map-card a:hover, #bandspace-map-card a:active {
+  text-decoration:none !important;
 }
