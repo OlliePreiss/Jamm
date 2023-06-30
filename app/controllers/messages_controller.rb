@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
       # set_has_unread_messages_to_the_other_user(conversation: @conversation, message: @message)
       ConversationChannel.broadcast_to(
         @conversation,
-        render_to_string(partial: "message", locals: {message: @message})
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: current_user.id
       )
       head :ok
       # redirect_to conversation_path(@conversation)
