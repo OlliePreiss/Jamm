@@ -1,5 +1,6 @@
 <div class="container chatroom" data-controller="conversation-subscription"
   data-conversation-subscription-conversation-id-value="<%= @conversation.id %>"
+  data-conversation-subscription-current-user-id-value="<%= current_user.id %>"
 >
   <% if @conversation.match.receiver == current_user %>
     <div class="match-details">
@@ -13,7 +14,9 @@
 
   <div class="messages" id="messages" data-conversation-subscription-target="messages" data-controller="scroll">
     <% @conversation.messages.each do |message| %>
-     <%= render "messages/message", message: message %>
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'my-message-box' : 'match-message-box' %>">
+        <%= render "messages/message", message: message %>
+      </div>
     <% end %>
   </div>
 

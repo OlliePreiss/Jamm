@@ -1,15 +1,11 @@
- <% if message.user.id == current_user.id%>
-  <div class="my-message-box" id="message-<%= message.id %>">
+<% if message.user.id == current_user.id%>
       <small>
         <i><%= message.created_at.strftime("%b %e at %l:%M %p") %></i>
       </small>
       <p><%= message.content %></p>
-  </div>
 <% else %>
-  <div class="match-message-box" id="message-<%= message.id %>">
       <small>
         <i><%= message.created_at.strftime("%b %e at %l:%M %p") %></i>
       </small>
       <p><%= message.content %></p>
-  </div>
 <% end %>
