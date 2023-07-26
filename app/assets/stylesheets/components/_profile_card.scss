@@ -43,3 +43,49 @@
 audio {
   width: 100%;
 }
+
+/* Media Queries for Responsive Design */
+/* Mobile (up to 767px) */
+@media (max-width: 479px) {
+  .btn, .btn-discrete{
+    max-width: 70%;
+  }
+}
+
+
+// /* Mobile Landscape (480px to 767px) */
+// @media (min-width: 480px) and (max-width: 767px) {
+//   .btn, .btn-discrete{
+//     max-width: 50%;
+//   }
+// }
+
+// /* Tablet Portrait (768px to 991px) */
+// @media (min-width: 768px) and (max-width: 991px) {
+
+//   .btn, .btn-discrete{
+//     max-width: 40%;
+//   }
+// }
+
+// /* Tablet Landscape (992px to 1199px) */
+// @media (min-width: 992px) and (max-width: 1199px) {
+//   .btn, .btn-discrete{
+//     max-width: 30%;
+//   }
+// }
+
+// /* Desktop (1200px to 1599px) - No specific changes for this size range */
+
+// @media (min-width: 1200px) and (max-width: 1599px) {
+//   .btn, .btn-discrete{
+//     max-width: 25%;
+//   }
+// }
+
+// /* Large Desktop (1600px and above) */
+// @media (min-width: 1600px) {
+//   .btn, .btn-discrete{
+//     max-width: 20%;
+//   }
+// }
