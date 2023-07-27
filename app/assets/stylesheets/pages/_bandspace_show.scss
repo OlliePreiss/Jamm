@@ -2,7 +2,6 @@
 
   background-color: white;
   border-radius: 5px;
-  height: 80%;
 }
 
 
@@ -25,10 +24,15 @@
   margin-right: 10px;
 }
 
+.img-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .image {
   width: 100vw;
-  max-width: 400px;
+  max-width: 100%;
   object-fit: cover;
   vertical-align: center;
 }
@@ -54,6 +58,7 @@
 
 .bandspace .make-a-booking {
   margin-top: 20px;
+  padding-bottom: 10px;
 }
 
 .bandspace .form-label-price {
@@ -98,4 +103,50 @@
   h3{
     font-weight: bolder;
   }
+}
+
+/* Media Queries for Responsive Design */
+/* Mobile (up to 767px) */
+@media (max-width: 479px) {
+  .bandspace{
+   max-width: 90%;
+ }
+}
+
+
+/* Mobile Landscape (480px to 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .bandspace{
+   max-width: 80%;
+ }
+}
+
+/* Tablet Portrait (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .bandspace{
+   max-width: 70%;
+ }
+}
+
+/* Tablet Landscape (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .bandspace{
+   max-width: 60%;
+ }
+}
+
+/* Desktop (1200px to 1599px) - No specific changes for this size range */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .bandspace{
+   max-width: 50%;
+ }
+}
+
+/* Large Desktop (1600px and above) */
+@media (min-width: 1600px) {
+  .bandspace{
+   max-width: 40%;
+ }
 }
