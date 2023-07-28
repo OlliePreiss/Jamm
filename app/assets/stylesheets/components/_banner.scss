@@ -1,8 +1,9 @@
 .banner {
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   padding: 300px 0;
-  height: 100%;
+  height: 100vh;
 }
 
 .banner h1 {
@@ -20,4 +21,154 @@
   color: rgb(0, 0, 0);
   width: 80%;
   margin: 10px 10% 5% 10%;
+}
+
+.banner-btn-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media Queries for Responsive Design */
+/* Mobile (up to 767px) */
+@media (max-width: 479px) {
+  .banner {
+    h1 {
+      font-size: 32px;
+      margin-left: 20%;
+      max-width: 80%;
+    }
+    p{
+      margin-left: 20%;
+      max-width: 80%;
+    }
+    padding: 300px 0;
+  }
+  .banner-btn-cont > .btn{
+    max-width: 70%;
+  }
+
+
+
+}
+
+
+/* Mobile Landscape (480px to 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .banner {
+    h1 {
+      font-size: 34px;
+    }
+    p{
+      max-width: 50%;
+      margin-bottom: 0%;
+    }
+}
+
+  .banner-btn-cont{
+    justify-content: left;
+    .btn{
+      max-width: 50%;
+    }
+
+  }
+
+
+}
+
+/* Tablet Portrait (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .banner {
+    h1 {
+      font-size: 36px;
+    }
+    p{
+      max-width: 40%;
+      margin-bottom: 0%;
+    }
+}
+
+  .banner-btn-cont{
+    justify-content: left;
+    .btn{
+      max-width: 40%;
+    }
+
+  }
+
+}
+
+/* Tablet Landscape (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .banner {
+    h1 {
+      font-size: 38px;
+    }
+    p{
+      max-width: 30%;
+      margin-bottom: 0%;
+    }
+}
+
+  .banner-btn-cont{
+    justify-content: left;
+    .btn{
+      max-width: 30%;
+    }
+
+  }
+}
+
+/* Desktop (1200px to 1599px) - No specific changes for this size range */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .banner {
+    h1 {
+      font-size: 40px;
+      margin-left: 20%;
+    }
+    p{
+      max-width: 25%;
+      margin-bottom: 0%;
+      margin-left: 20%;
+    }
+    .btn{
+      margin-left: 20%;
+    }
+}
+
+  .banner-btn-cont{
+    justify-content: left;
+    .btn{
+      max-width: 25%;
+    }
+
+  }
+
+}
+
+/* Large Desktop (1600px and above) */
+@media (min-width: 1600px) {
+  .banner {
+    h1 {
+      font-size: 40px;
+      margin-left: 30%;
+    }
+    p{
+      max-width: 20%;
+      margin-bottom: 0%;
+      margin-left: 30%;
+    }
+    .btn{
+      margin-left: 30%;
+    }
+}
+
+  .banner-btn-cont{
+    justify-content: left;
+    .btn{
+      max-width: 20%;
+    }
+
+  }
 }

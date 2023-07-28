@@ -1,12 +1,14 @@
+
+<div class="match-background-colour band-cont">
+  <div class="container bandspace d-flex flex-column">
+    <div class="img-cont">
      <% if @bandspace.photo_url.key %>
       <%=  cl_image_tag @bandspace.photo_url.key, height: 300 , width: 900, crop: :fill, class: "image" %>
     <% else  %>
     <img src=<%= @bandspace.photo_url.record[:photo_url]%> style="height: 300;width: 400" class="image">
     <% end %>
-
-<div class="match-background-colour band-cont">
-  <div class="container bandspace d-flex flex-column">
-
+    </div>
+    
     <h2> <%= @bandspace.name %> </h2>
     <div class=" d-flex host-capacity-price">
         <p id="capacity"> <i class="fa-sharp fa-solid fa-people-group"></i> Capacity: <strong><%= @bandspace.capacity %></strong></p>
@@ -14,7 +16,7 @@
     </div>
 
     <div class="info-and-booking">
-      
+
       <div class="description">
         <p> <%= @bandspace.description %> </p>
       <%# <div class="backspace">

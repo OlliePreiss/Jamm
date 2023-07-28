@@ -29,8 +29,11 @@
 # app/controllers/matches_controller.rb
 class MatchesController < ApplicationController
   def index
-    @matches = Match.matches_for(current_user.id)
+    matches = Match.matches_for(current_user.id)
+    puts matches.inspect
     @profiles = Match.reccomend_matches_for(current_user.id)
+    # @conversations = matches.map(&:conversation)
+    # @new_message = Message.new
   end
 
   # if time refactor approve and decline as v similar

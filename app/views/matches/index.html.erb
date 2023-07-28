@@ -2,24 +2,28 @@
     <div class="loader-wrapper"  data-controller="loader" data-loader-target="loaderWrapper">
       <span class="loader"><span class="loader-inner">J</span></span>
     </div>
-
-    <% @profiles.each do |profile| %>
-      <div class="profile-card" data-matches-target="profile">
-        <!-- Display profile details -->
-        <%= render 'profile_card', profile: profile %>
-        <div class="connect-next">
-          <%= button_to 'Next',
-                      decline_matches_path(profile_id: profile.id),
-                      method: :post,
-                      remote: true,
-                      class: 'decline-button',
-                      id: "next" %>
-          <%= button_to 'Connect',
-                        approve_matches_path(profile_id: profile.id),
-                        method: :post, remote: true,
+    <%# <div class="convo-sidebar"> %>
+      <%# = render partial: 'layouts/sidebar', locals: { conversations: @conversations }  %>
+    <%# </div> %>
+    <%# <div class="potential-matches"> %>
+      <% @profiles.each do |profile| %>
+        <div class="profile-card" data-matches-target="profile">
+          <!-- Display profile details -->
+          <%= render 'profile_card', profile: profile %>
+          <div class="connect-next">
+            <%= button_to 'Next',
+                        decline_matches_path(profile_id: profile.id),
+                        method: :post,
+                        remote: true,
                         class: 'decline-button',
-                        id: "connect" %>
+                        id: "next" %>
+            <%= button_to 'Connect',
+                          approve_matches_path(profile_id: profile.id),
+                          method: :post, remote: true,
+                          class: 'decline-button',
+                          id: "connect" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    <%# </div> %>
 </div>
