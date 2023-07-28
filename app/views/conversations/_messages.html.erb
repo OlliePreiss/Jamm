@@ -1,0 +1,32 @@
+<div class="container chatroom" data-controller="conversation-subscription"
+  data-conversation-subscription-conversation-id-value="<%= conversation.id %>"
+  data-conversation-subscription-current-user-id-value="<%= current_user.id %>"
+>
+  <% if conversation.match.receiver == current_user %>
+    <div class="match-details">
+      <%= link_to "#{conversation.match.sender.name}", show_user_path(conversation.match.sender.id), class: "match-details-text"  %>
+    </div>
+  <% else %>
+      <div class="match-details">
+        <%= link_to "#{conversation.match.receiver.name}", show_user_path(conversation.match.receiver.id), class: "match-details-text"  %>
+       </div>
+  <% end %>
+
+  <div class="messages" id="messages" data-conversation-subscription-target="messages" data-controller="scroll">
+    <% conversation.messages.each do |message| %>
+      <div class="message-row d-flex <%= message.sender?(current_user) ? 'my-message-box' : 'match-message-box' %>">
+        <%= render "messages/message", message: message %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [conversation, message], html: {class: "d-flex"},
+  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"} do |f| %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Send message",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-messaging mb-3" %>
+  <% end %>
+</div>
